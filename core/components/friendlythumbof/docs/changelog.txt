@@ -1,0 +1,8 @@
+Changelog for friendlythumbof
+
+friendlyThumbOf 1.0.0 - Beta1
+---------------------------------
+Initial Version
+- Friendly url generator for phpThumbOf (required phpThumbOf separetely)
+- Sample .ht.access provided in doc directory
+- Plese see readme file for further information
