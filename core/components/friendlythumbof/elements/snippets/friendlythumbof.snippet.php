@@ -17,7 +17,6 @@
  * - [[friendlyThumbOf? &input=`media/logo.jpg`]]
  * - [[*mygallery:friendlyThumbOf=`mode=thumb&context=web`]]
  *
- * 
  * USAGE 2
  * Go to system setting, namespace friendlythumbof, and create another 
  * mode: friendlythumbof.imagemode_large = 'w=600&h=800&far=C&cz=0'
@@ -30,10 +29,17 @@
  * - [[friendlyThumbOf? &input=`media/logo.jpg`]]
  * Output http://mydomain.com/image/enUS/default/media/logo.jpg
  *
- * USAGE 4
+ * USAGE 4: for CMP
  * Direct access or no fancy url
  * - [[friendlyThumbOf? &input=`media/logo.jpg` &context=`mgr` &friendly=`0`]]
  * Output http://mydomain.com/assets/components/friendlythumbof/connector.php?input=media/logo.jpg&mode=default&context=`mgr`
+ *
+ * USAGE 5: for CMP
+ * Get base thumbnail url (without image) for further use
+ * - [[friendlyThumbOf? &context=`web` mode=`thumb` &base=`1`]]
+ * or using runSnippet
+ * - $baseThumb = $modx->runSnippet('friendlyThumbOf',array('context'=>'web', 'mode'=>'thumb', 'base'=>1)); 
+ * Output http://mydomain.com/image/web/thumb (without trailing slash)
  *
 **/
 
@@ -50,8 +56,13 @@ if (!@require_once($assetsPath.'friendlythumbof.function.php')) {
 }
 
 /* Get input (image path) */
-$input    = isset($input) ? $input : '';
-if (empty($input)) return '';
+$base    = isset($base) ?  true : false;
+$input   = isset($input) ? $input : '';
+if (empty($input)) {
+    if (!$base) return '';
+    //add fake image
+    $input = 'base.jpg';
+}
 
 /* Get properties */
 $option = isset($option) ? $option: null;
@@ -87,5 +98,8 @@ if (!$imageProperties['imagemode']) {
 $imageProperties = array_merge(friendlythumbof_get_options($modx), $imageProperties);
 
 $cache_info = friendlythumbof_generate_url($imageProperties);
-
-return $cache_info['url'];
+$output = $cache_info['url'];
+if ($base) {
+    $output = substr($output,0,(strlen($cache_info['input'])*-1)-1);
+}
+return $output;

@@ -17,7 +17,7 @@
  * friendlyThumbOf; if not, write to the Free Software Foundation, Inc., 59 Temple
  * Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * @package friendlythumbof
+ * @package friendlyThumbOf
  */
 /**
  * friendlyThumbOf transport package build script
@@ -34,7 +34,7 @@ set_time_limit(0);
 /* set package defines */
 define('PKG_NAME','friendlyThumbOf');
 define('PKG_NAME_LOWER',strtolower(PKG_NAME));
-define('PKG_VERSION','1.0.0');
+define('PKG_VERSION','1.1.0');
 define('PKG_RELEASE','beta1');
 
 /* override with your own defines here (see build.config.sample.php) */
@@ -65,7 +65,8 @@ $modx->setLogTarget('ECHO');
 
 $modx->loadClass('transport.modPackageBuilder','',false, true);
 $builder = new modPackageBuilder($modx);
-$builder->createPackage(PKG_NAME_LOWER,PKG_VERSION,PKG_RELEASE);
+$builder->createPackage(PKG_NAME,PKG_VERSION,PKG_RELEASE);
+//$builder->package->name = PKG_NAME;
 $builder->registerNamespace(PKG_NAME_LOWER,false,true,'{core_path}components/'.PKG_NAME_LOWER.'/');
 
 /* package snippets */

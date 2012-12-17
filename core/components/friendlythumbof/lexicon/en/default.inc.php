@@ -1,6 +1,6 @@
 <?php
 /**
- * en default topic lexicon file for friendlythumbof extra
+ * en default topic lexicon file for friendlyThumbOf extra
  *
  * Copyright 2012 by Zaenal Muttaqin @lokamaya.com
  * Created on 12-17-2012
@@ -18,7 +18,7 @@
  * friendlythumbof; if not, write to the Free Software Foundation, Inc., 59 Temple
  * Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * @package friendlythumbof
+ * @package friendlyThumbOf
 **/
 
 $_lang['setting_friendlythumbof.allow_friendly'] = 'Friendly Thumbnail (mod_rewrite)';
@@ -44,3 +44,6 @@ $_lang['setting_friendlythumbof.imagemode_medium_desc'] = 'Image mode "medium". 
 $_lang['setting_friendlythumbof.imagemode_large'] = 'Mode: large';
 $_lang['setting_friendlythumbof.imagemode_large_desc'] = 'Image mode "large". Feel free to modify or delete it. <br />Key: friendlythumbof.imagemode_large';
 
+$_lang['prof_friendlythumbof.mode'] = 'Thumbnail Mode';
+$_lang['prof_friendlythumbof.mode_desc'] = 'Mode for thumbnail.';
+?>

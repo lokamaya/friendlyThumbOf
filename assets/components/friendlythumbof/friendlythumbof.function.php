@@ -91,16 +91,18 @@ function friendlythumbof_generate_url($imageProperties) {
         $connector_query .= '&context_image='.$imageProperties['context'];
     }
     
-    $cache_url  = $cache_url . $imageProperties['input'];
-    $cache_path = $cache_path . $imageProperties['input'];
-    $_alt = $imageProperties['connector_url'].'?'.$connector_query;
-    
-    if ($imageProperties['direct'] || !$imageProperties['friendlythumbof.allow_friendly']) {
+    $input = preg_replace("@^/+@","",$imageProperties['input']);
+    $cache_path = $cache_path . $input;
+    if ((isset($imageProperties['direct']) && $imageProperties['direct']) || !$imageProperties['friendlythumbof.allow_friendly']) {
         $_alt = $cache_url;
         $cache_url = $imageProperties['connector_url'].'?'.$connector_query;
+    } else {
+        $cache_url  = $cache_url . $input;
+        $_alt = $imageProperties['connector_url'].'?'.$connector_query;
     }
     
     $cacheinfo = array(
+        'input' => $input,
         'cache' => $cache_path,
         'url'  => $cache_url,
         '_alt'  => $_alt

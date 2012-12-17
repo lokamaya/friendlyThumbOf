@@ -1,5 +1,12 @@
-Changelog for friendlythumbof
+Changelog for friendlyThumbOf
 
+---------------------------------
+friendlyThumbOf 1.1.0 - Beta1
+---------------------------------
+- Add new snippet property: "base" to get base url without image
+- #bug fix: image trailing slash
+
+---------------------------------
 friendlyThumbOf 1.0.0 - Beta1
 ---------------------------------
 Initial Version
