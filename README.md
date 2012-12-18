@@ -10,7 +10,7 @@ Generate friendly url for thumbnail image and use *mod_rewrite* to parse the url
 * Enable/disable friendly feature
 * Modify the url prefix (by default "image")
 * Enable/disable to append __context__ to url, like `http://mydomain.com/image/contextKey/anyMode/image.jpg`
-* Add, modify and delete any __mode__ as you wish from System Events. By default, there are 4 modes provided: *default* `mw950`, *thumb* `w90&h120`, *medium* `w=300&h=400`, and *large* `w=90&h=120`
+* Add, modify and delete any __mode__ as you wish from System Events. By default, there are 4 modes provided: *default* `mw950`, *thumb* `w90&h120`, *medium* `w=300&h=400`, and *large* `w=900&h=1200`
 * No worry with the cache. It will be handled by phpThumbOf automatically.
 
 ---------------------------------------------
