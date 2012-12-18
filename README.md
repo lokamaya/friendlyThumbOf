@@ -2,7 +2,7 @@
 ###Friendly url for phpThumbOf (MODx Revo)###
 ---------------------------------------------
 
-Generate friendly url for thumbnail image and use mod_rewrite to parse the url. This extra depend on [phpThumbOf](https://github.com/splittingred/phpThumbOf) for rendering the thumbnail, but will do fine to generate url only. That the main different with phpThumbOf: the image thumbnail will be rendered when there is a 'real' request to the server.
+Generate friendly url for thumbnail image and use *mod_rewrite* to parse the url. This extra depend on [phpThumbOf](https://github.com/splittingred/phpThumbOf) for rendering the thumbnail, but will do fine to generate url only. That the main different with phpThumbOf: the thumbnail will be rendered *later* when there is a 'real' request to the server.
 
 ---------------------------------------------
 
