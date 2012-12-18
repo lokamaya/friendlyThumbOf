@@ -83,16 +83,17 @@ function friendlythumbof_generate_url($imageProperties) {
         if (empty($imageProperties['friendlythumbof.force_cache_context'])) {
             if (empty($imageProperties['context'])) $imageProperties['context'] = 'web';
             $cache_path .= $imageProperties['context'] .'/'. $imageProperties['mode'] . '/';
-            $cache_url  .=  $imageProperties['friendlythumbof.base_request'] . '/' . $imageProperties['context'] . '/' . $separator. $imageProperties['mode'] . '/';
+            $cache_url  .= $imageProperties['friendlythumbof.base_request'] . '/' . $imageProperties['context'] . '/' . $separator. $imageProperties['mode'] . '/';
         } else {
             $cache_path .= $imageProperties['friendlythumbof.force_cache_context'] .'/'. $imageProperties['mode'] . '/';
-            $cache_url  .=  $imageProperties['friendlythumbof.base_request'] . '/' . 'web/' . $separator. $imageProperties['mode'] . '/';
+            $cache_url  .= $imageProperties['friendlythumbof.base_request'] . '/' . 'web/' . $separator. $imageProperties['mode'] . '/';
         }
         $connector_query .= '&context_image='.$imageProperties['context'];
     }
     
     $input = preg_replace("@^/+@","",$imageProperties['input']);
     $cache_path = $cache_path . $input;
+    $connector_query .= '&input=/' . $input;
     if ((isset($imageProperties['direct']) && $imageProperties['direct']) || !$imageProperties['friendlythumbof.allow_friendly']) {
         $_alt = $cache_url;
         $cache_url = $imageProperties['connector_url'].'?'.$connector_query;
