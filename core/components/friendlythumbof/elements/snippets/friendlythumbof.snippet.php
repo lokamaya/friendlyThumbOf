@@ -78,17 +78,17 @@ if ($option) {
 
 $wctx = $modx->resource ? $modx->resource->get('context') : $modx->context->get('key');
 
-$imageProperties['direct'] = $direct;
-$imageProperties['context']  = $modx->getOption('context', $scriptProperties, $wctx, true);
-$imageProperties['input']    = $input;
-$imageProperties['base_url'] = $modx->context->getOption('base_url');
-$imageProperties['mode']     = $modx->getOption('mode', $scriptProperties, 'default', true);
-$imageProperties['imagemode'] = $modx->getOption('friendlythumbof.imagemode_'.$imageProperties,null,null);
+$imageProperties['direct']    = $direct;
+$imageProperties['context']   = $modx->getOption('context', $scriptProperties, $wctx, true);
+$imageProperties['input']     = $input;
+$imageProperties['base_url']  = $modx->context->getOption('base_url');
+$imageProperties['mode']      = $modx->getOption('mode', $scriptProperties, 'default', true);
+$imageProperties['imagemode'] = $modx->getOption('friendlythumbof.imagemode_'.$imageProperties['mode'],null,null);
 
 if (!$imageProperties['imagemode']) {
     if ($imageProperties['mode'] != 'default') {
         $imageProperties['mode'] = 'default';
-        $imageProperties['imagemode'] = $modx->getOption('friendlythumbof.imagemode_'.$imageProperties['imagemode'],null,'');
+        $imageProperties['imagemode'] = $modx->getOption('friendlythumbof.imagemode_'.$imageProperties['mode'],null,'');
     } else {
         $modx->log(modX::LOG_LEVEL_ERROR,'[friendlyThumbOf] Could not load default mode');
         return '';
