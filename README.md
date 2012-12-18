@@ -2,7 +2,7 @@
 ###Friendly url for phpThumbOf (MODx Revo)###
 ---------------------------------------------
 
-Generate friendly url for thumbnail image and use *mod_rewrite* to parse the url. This extra depend on [phpThumbOf](https://github.com/splittingred/phpThumbOf) for rendering the thumbnail, but will do fine to generate url only. That the main different with phpThumbOf: the thumbnail will be rendered *later* when there is a 'real' request to the server.
+Generate friendly url for thumbnail image and use *mod_rewrite* to parse the url. This extra depend on [phpThumbOf](https://github.com/splittingred/phpThumbOf) for rendering the thumbnail, but will do fine to generate url only. That's the main different with phpThumbOf. When using friendlyThumbOf, the thumbnail will be rendered *later* if there is a 'real' request to the server.
 
 ---------------------------------------------
 
@@ -11,8 +11,10 @@ Generate friendly url for thumbnail image and use *mod_rewrite* to parse the url
 * Modify the url prefix (by default "image")
 * Enable/disable to append __context__ to url, like `http://mydomain.com/image/contextKey/anyMode/image.jpg`
 * Add, modify and delete any __mode__ as you wish from System Events. By default, there are 4 modes provided: *default* `mw950`, *thumb* `w90&h120`, *medium* `w=300&h=400`, and *large* `w=900&h=1200`
-* Sample mod_rewrite with 4 advanced scenarios can be found on doc (core/components/friendlythumbof/doc/ht.access)
-* No worry with the cache. It will be handled by phpThumbOf automatically.
+* Sample mod_rewrite with 4 advanced scenarios can be found on doc *core/components/friendlythumbof/doc/ht.access*
+
+__*To do list: clean up the cache?*__
+The friendlyThumbOf produces trailing sub directories for storing the cache. So its required to provide another plugin for cleaning up the cache, because phpThumbOf plugin only clean up main cache directory. 
 
 ---------------------------------------------
 ####Usage####
@@ -24,7 +26,7 @@ Call the snippet from resource or chunk:
 /* will generate a url like http://mydomain.com/image/anotherMode/path/to/my/image.jpg */
 ```
 
-For CMP, like gallery or image browser, the snippet also can be used to display the image thumbail. For example:
+For CMP, like gallery or image browser, the snippet also can be used to display the thumbail. For example:
 ```javascript
 <script type="text/javascript">
 var thumbUrl = "[[friendlyThumbOf? &mode=`thumb` &base=`1`]]";
