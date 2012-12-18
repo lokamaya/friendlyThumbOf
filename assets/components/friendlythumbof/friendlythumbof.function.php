@@ -159,6 +159,29 @@ function _stringifyFT(&$item,$key,$par) {
     }
 }
 
+function friendlythumbof_cleanup_input($string) {
+    $search = array(
+        "@<[^>]+>@",
+        "@\[[^\]]+\]@",
+        "@\{[^\}]+\}@",
+        "@\([^\)]+\)@",
+        "@[\[\]\(\)\|\{\}<>\+\=\*\:\!\"'\#\@\\\`\?,]+@",
+        "@^/+@",
+        "@/+@",
+    );
+    $replace = array(
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "/"
+    );
+    $string = preg_replace($search, $replace, $string);
+    
+    return $string;
+}
 
 function friendlythumbof_fancy_path($path) {
     return str_replace('\\','/', trim($path));

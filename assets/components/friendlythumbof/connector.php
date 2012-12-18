@@ -103,7 +103,7 @@ $fto_options = friendlythumbof_get_options($modx);
 $mode    = (string)isset($_GET['mode']) ? (trim($_GET['mode'])) : '';
 $mode    = preg_replace("@\W+@",'',$mode);
 $input   = (string)isset($_GET['input']) ? (string)(trim($_GET['input'])) : '';
-$input   = strip_tags($input);
+$input   = friendlythumbof_cleanup_input($input);
 
 $imageProperties = $fto_options;
 $imageProperties['friendlythumbof.allow_friendly'] = $allow_friendly;
