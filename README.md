@@ -38,7 +38,7 @@ Ext.each(imgGallery, function(img){
 Another example is using __runSnippet__ to get the base thumbnail url:
 ```php
 <?php
-$thumbUrl = $modx->runSnippet('friendlyThumbOf', array('mode'=>'abotherThumb', 'base'=>1));
+$thumbUrl = $modx->runSnippet('friendlyThumbOf', array('mode'=>'anotherThumb', 'base'=>1));
 /* will generate http://mydomain.com/image/anotherThumb (without trailing slash) */
 $imgGallery = array('gallery/photo1.jpg','gallery/photo2.jpg');
 foreach($imgGallery as $img) {
