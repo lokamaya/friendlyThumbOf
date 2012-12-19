@@ -12,9 +12,7 @@ Generate friendly url for thumbnail image and use *mod_rewrite* to parse the url
 * Enable/disable to append __context__ to url, like `http://mydomain.com/image/contextKey/anyMode/image.jpg`
 * Add, modify and delete any __mode__ as you wish from System Events. By default, there are 4 modes provided: *default* `mw950`, *thumb* `w90&h120`, *medium* `w=300&h=400`, and *large* `w=900&h=1200`
 * Sample mod_rewrite with 4 advanced scenarios can be found on doc *core/components/friendlythumbof/doc/ht.access*
-
-__*To do list: clean up the cache?*__
-The friendlyThumbOf produces trailing sub directories for storing the cache. So its required to provide another plugin for cleaning up the cache, because phpThumbOf plugin only clean up main cache directory. 
+* TO DO: Plugin for cleaning up the cache
 
 ---------------------------------------------
 ####Usage####
